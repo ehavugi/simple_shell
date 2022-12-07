@@ -1,0 +1,16 @@
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: compile
+      run: gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
