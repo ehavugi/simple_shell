@@ -1,6 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "shell.h"
+
 
 /**
  * main - main
@@ -25,11 +24,11 @@ int main(void)
 	{
 		printf("(hsh$) ");
 		characters = getline(&buf, &bufsize, stdin);
-		printf("%d, %s\n", characters, buf);
-		if (strcmp(buf, "q!\n") == 0 || strcmp(buf, "exit\n") == 0 || characters < 0)
+		if (_strcmp(buf, "exit\n") == 0 || characters == -1)
 		{
 			return (0);
 		}
+		_handler(buf);
 	}
 }
 
