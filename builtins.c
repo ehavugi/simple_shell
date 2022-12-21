@@ -18,6 +18,7 @@ int shell_exit(void)
 int shell_env(void)
 {
 	size_t i;
+
 	i = 0;
 	while (environ[i] != NULL)
 	{
@@ -27,3 +28,5 @@ int shell_env(void)
 	}
 	return (0);
 }
+
+

@@ -71,7 +71,15 @@ int child(char *fullpath, char **tokens)
 	int execve_status;
 	char **envp = environ;
 
-	child_pid = fork();
+	if (access(fullpath, F_OK) == 0)
+	{
+		child_pid = fork();
+	}
+	else
+	{
+		printf("hsh: 1: %s: not found\n", fullpath);
+		return (0);
+	}
 	if (child_pid == -1)
 	{
 		errors(1);
@@ -88,4 +96,3 @@ int child(char *fullpath, char **tokens)
 
 	return (0);
 }
-
